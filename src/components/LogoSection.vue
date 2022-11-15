@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="md:block hidden">
     <img
       src="../assets/aebff820fd4da79db61299c3ac69bd9a.png"
       alt="logo.exe"
