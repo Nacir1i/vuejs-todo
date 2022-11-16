@@ -34,10 +34,18 @@
         <CreateTask v-if="display" />
         <div
           :class="[
-            display ? 'h-96' : 'h-[40rem]',
-            'flex flex-col overflow-auto',
+            display ? 'h-96' : 'h-[38rem]',
+            'flex flex-col gap-4 overflow-auto p-3',
           ]"
-        ></div>
+        >
+          <div
+            class="w-full h-20 bg-green-500"
+            v-for="task in list"
+            :key="task.id"
+          >
+            <TaskItem :task="task" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -46,19 +54,21 @@
 <script>
 import LogoSection from "./components/LogoSection.vue";
 import CreateTask from "./components/CreateTask.vue";
+import TaskItem from "./components/TaskItem.vue";
 
 export default {
   name: "App",
   components: {
     LogoSection,
     CreateTask,
+    TaskItem,
   },
   data() {
     return {
       list: [
-        { id: 1, title: "item1", timer: "11:69", decription: "lolrandomxd" },
-        { id: 2, title: "item2", timer: "11:69", decription: "lolrandomxd" },
-        { id: 3, title: "item3", timer: "11:69", decription: "lolrandomxd" },
+        { id: 1, name: "item1", timer: "11:69", description: "lolrandomxd" },
+        { id: 2, name: "item2", timer: "11:69", description: "lolrandomxd" },
+        { id: 3, name: "item3", timer: "11:69", description: "lolrandomxd" },
       ],
       display: false,
     };
