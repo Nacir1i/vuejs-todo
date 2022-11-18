@@ -1,7 +1,7 @@
 <template>
   <form
-    @submit.prevent
-    class="w-full h-60 flex flex-col gap-y-4 justify-center items-center text-white border-b-4 border-third"
+    @submit.prevent="$emit('add', { name, description, timer })"
+    class="w-full h-60 flex flex-col gap-y-4 justify-center items-center text-white"
   >
     <div class="w-full flex justify-between items-center">
       <label class="font-semibold text-md" for="name">What task is it ?</label>
@@ -30,7 +30,7 @@
       <input
         class="w-64 rounded-sm focus:outline-none bg-fith text-black p-1"
         type="date"
-        v-model="date"
+        v-model="timer"
         id="date"
       />
     </div>
@@ -45,7 +45,7 @@ export default {
     return {
       name: "",
       description: "",
-      date: "",
+      timer: "",
     };
   },
 };

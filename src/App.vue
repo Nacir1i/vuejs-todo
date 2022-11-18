@@ -31,15 +31,15 @@
             </div>
           </div>
         </div>
-        <CreateTask v-if="display" />
+        <CreateTask v-if="display" @add="saveItem" />
         <div
           :class="[
             display ? 'h-96' : 'h-[38rem]',
-            'flex flex-col gap-4 overflow-auto p-3',
+            'flex flex-col gap-4 overflow-auto p-3 scrollbar-thin scrollbar-thumb-third scrollbar-track-fith',
           ]"
         >
           <div
-            class="w-full h-20 bg-green-500"
+            class="w-full h-28 bg-secondary text-white rounded-md"
             v-for="task in list"
             :key="task.id"
           >
@@ -52,6 +52,7 @@
 </template>
 
 <script>
+// import { fetchItems } from "./Firebase";
 import LogoSection from "./components/LogoSection.vue";
 import CreateTask from "./components/CreateTask.vue";
 import TaskItem from "./components/TaskItem.vue";
@@ -69,9 +70,23 @@ export default {
         { id: 1, name: "item1", timer: "11:69", description: "lolrandomxd" },
         { id: 2, name: "item2", timer: "11:69", description: "lolrandomxd" },
         { id: 3, name: "item3", timer: "11:69", description: "lolrandomxd" },
+        { id: 4, name: "item4", timer: "11:69", description: "lolrandomxd" },
+        { id: 5, name: "item5", timer: "11:69", description: "lolrandomxd" },
+        { id: 6, name: "item6", timer: "11:69", description: "lolrandomxd" },
+        { id: 7, name: "item7", timer: "11:69", description: "lolrandomxd" },
+        { id: 8, name: "item8", timer: "11:69", description: "lolrandomxd" },
+        { id: 9, name: "item9", timer: "11:69", description: "lolrandomxd" },
       ],
-      display: false,
+      display: true,
     };
+  },
+  async created() {
+    // this.list = await fetchItems();
+  },
+  methods: {
+    saveItem: (item) => {
+      console.log(item);
+    },
   },
 };
 </script>
