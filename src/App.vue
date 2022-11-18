@@ -43,7 +43,7 @@
             v-for="task in list"
             :key="task.id"
           >
-            <TaskItem :task="task" />
+            <TaskItem :task="task" @delete="del" />
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-// import { fetchItems } from "./Firebase";
+import { fetchItems, addItem, deleteItem } from "./Firebase";
 import LogoSection from "./components/LogoSection.vue";
 import CreateTask from "./components/CreateTask.vue";
 import TaskItem from "./components/TaskItem.vue";
@@ -66,19 +66,21 @@ export default {
   },
   data() {
     return {
-      list: [
-        { id: 1, name: "item1", timer: "11:69", description: "lolrandomxd" },
-        { id: 2, name: "item2", timer: "11:69", description: "lolrandomxd" },
-      ],
+      list: [],
       display: true,
     };
   },
   async created() {
-    // this.list = await fetchItems();
+    this.list = await fetchItems();
   },
   methods: {
     saveItem(item) {
+      addItem(item);
       this.list = [...this.list, item];
+    },
+    del(id) {
+      deleteItem(id);
+      this.list = this.list.filter((item) => item.id != id);
     },
   },
 };

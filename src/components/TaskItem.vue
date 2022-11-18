@@ -13,6 +13,7 @@
     </div>
     <i
       class="w-1/12 fa-solid fa-xmark text-center text-xl text-red-500 cursor-pointer"
+      @click="$emit('delete', task.id)"
     ></i>
   </div>
 </template>
@@ -22,9 +23,6 @@ export default {
   name: "TaskItem",
   props: {
     task: Object,
-  },
-  data() {
-    return {};
   },
 };
 </script>
