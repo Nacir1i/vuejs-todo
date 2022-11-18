@@ -69,13 +69,6 @@ export default {
       list: [
         { id: 1, name: "item1", timer: "11:69", description: "lolrandomxd" },
         { id: 2, name: "item2", timer: "11:69", description: "lolrandomxd" },
-        { id: 3, name: "item3", timer: "11:69", description: "lolrandomxd" },
-        { id: 4, name: "item4", timer: "11:69", description: "lolrandomxd" },
-        { id: 5, name: "item5", timer: "11:69", description: "lolrandomxd" },
-        { id: 6, name: "item6", timer: "11:69", description: "lolrandomxd" },
-        { id: 7, name: "item7", timer: "11:69", description: "lolrandomxd" },
-        { id: 8, name: "item8", timer: "11:69", description: "lolrandomxd" },
-        { id: 9, name: "item9", timer: "11:69", description: "lolrandomxd" },
       ],
       display: true,
     };
@@ -84,8 +77,8 @@ export default {
     // this.list = await fetchItems();
   },
   methods: {
-    saveItem: (item) => {
-      console.log(item);
+    saveItem(item) {
+      this.list = [...this.list, item];
     },
   },
 };

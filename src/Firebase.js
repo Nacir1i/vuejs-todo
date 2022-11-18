@@ -1,15 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDZT8UkBK_ceChOjoPRPJTgR26G-Yi127I",
-  authDomain: "todo-list-ed805.firebaseapp.com",
-  projectId: "todo-list-ed805",
-  storageBucket: "todo-list-ed805.appspot.com",
-  messagingSenderId: "640511923903",
-  appId: "1:640511923903:web:34dbba4675542cb4fb180a",
-  measurementId: "G-CLRYFN5QVP",
-};
+const firebaseConfig = {};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
